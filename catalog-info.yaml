@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "backstage-azure-demo"
+  annotations:
+    backstage.io/kubernetes-id: "backstage-azure-demo"
+    backstage.io/kubernetes-namespace: "backstage-azure-demo"
+    azure.com/tag-selector: backstage-entity-id/"backstage-azure-demo"
+spec:
+  type: service
+  owner: group:guests
+  lifecycle: experimental
