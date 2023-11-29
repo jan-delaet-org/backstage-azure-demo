@@ -5,7 +5,7 @@ metadata:
   annotations:
     backstage.io/kubernetes-id: "backstage-azure-demo"
     backstage.io/kubernetes-namespace: "backstage-azure-demo"
-    azure.com/tag-selector: backstage-entity-id/"backstage-azure-demo"
+    azure.com/tag-selector: backstage-entity-id/backstage-azure-demo
 spec:
   type: service
   owner: group:guests
