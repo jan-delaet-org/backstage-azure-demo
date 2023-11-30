@@ -6,7 +6,7 @@ metadata:
     backstage.io/kubernetes-id: "backstage-azure-demo"
     backstage.io/kubernetes-namespace: "backstage-azure-demo"
     azure.com/tag-selector: backstage-entity-id/backstage-azure-demo
-    github.com/project-slug: "backstage-azure-demo"
+    github.com/project-slug: "jan-delaet/backstage-azure-demo"
 spec:
   type: service
   owner: group:guests
