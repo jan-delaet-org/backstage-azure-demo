@@ -7,6 +7,12 @@ metadata:
     backstage.io/kubernetes-namespace: "backstage-azure-demo"
     azure.com/tag-selector: backstage-entity-id/backstage-azure-demo
     github.com/project-slug: "jan-delaet-org/backstage-azure-demo"
+    backstage.io/techdocs-ref: dir:./docs
+  links:
+    - title: Company
+      url: https://dexmach.com
+    - title: Application URL
+      url: https://backstage.jandelaet.com
 spec:
   type: service
   owner: group:guests
