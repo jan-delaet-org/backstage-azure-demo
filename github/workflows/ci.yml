@@ -1,0 +1,45 @@
+name: ci
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  run:
+    name: Java ${{ matrix.java }}
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        java: [8]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+          java-package: jdk
+          architecture: x64
+      - name: Run tests
+        run: mvn -B package
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dispatch workflow in other repository
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'dexmach-enterprise-nfr',
+              repo: 'cegeka-exploration-days-workflow-run',
+              workflow_id: 'hello.yml',
+              ref: 'main'
+            })
